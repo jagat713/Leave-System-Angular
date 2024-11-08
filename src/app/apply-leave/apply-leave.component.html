@@ -1,0 +1,63 @@
+<div class="apply-leave-form-container">
+  <h2>Apply for Leave</h2>
+
+  <form (ngSubmit)="onSubmit()" #form="ngForm"> 
+    <!-- Leave Type -->
+    <div class="form-group">
+      <label for="leaveType">Leave Type</label>
+      <select id="leaveType" [(ngModel)]="leave.leaveType" name="leaveType" required #leaveType="ngModel">
+        <option value="" disabled selected>Select Leave Type</option>
+        <option *ngFor="let type of leaveTypes" [value]="type">{{ type }}</option>
+      </select>
+      <!-- Error message for leave type -->
+      <div *ngIf="leaveType.invalid && leaveType.touched" class="error-message">
+        Please select a leave type.
+      </div>
+    </div>
+
+    <!-- Start Date -->
+    <div class="form-group">
+      <label for="startDate">Start Date</label>
+      <input type="date" id="startDate" [(ngModel)]="leave.leaveStart" name="startDate" required #startDate="ngModel" (change)="onLeaveStartChange()">
+      <!-- Error message for start date -->
+      <div *ngIf="startDate.invalid && startDate.touched" class="error-message">
+        Please select a start date.
+      </div>
+      <!-- Error message for past start date -->
+      <div *ngIf="dateError && dateError === 'Start date cannot be in the past.'" class="error-message">
+        {{ dateError }}
+      </div>
+    </div>
+
+    <!-- End Date -->
+    <div class="form-group">
+      <label for="endDate">End Date</label>
+      <input type="date" id="endDate" [(ngModel)]="leave.leaveEnd" name="endDate" required #endDate="ngModel" (change)="onLeaveEndChange()">
+      <!-- Error message for end date -->
+      <div *ngIf="endDate.invalid && endDate.touched" class="error-message">
+        Please select an end date.
+      </div>
+      <!-- Error message for past end date -->
+      <div *ngIf="dateError && dateError === 'End date cannot be in the past.'" class="error-message">
+        {{ dateError }}
+      </div>
+    </div>
+
+    <!-- Reason for Leave -->
+    <div class="form-group">
+      <label for="reason">Reason for Leave</label>
+      <textarea id="reason" [(ngModel)]="leave.leaveReason" name="reason" rows="4" required #reason="ngModel"></textarea>
+      <!-- Error message for reason -->
+      <div *ngIf="reason.invalid && reason.touched" class="error-message">
+        Please provide a reason for the leave.
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-group submit-btn-group">
+      <button type="submit" class="btn-apply-leave" [disabled]="form.invalid || dateError">
+        Apply Leave
+      </button>
+    </div>
+  </form>
+</div>

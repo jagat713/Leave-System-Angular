@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.landing-page {
+    display: flex;
+    min-height: 100vh;
+    box-sizing: content-box;
+    flex-wrap: wrap;
+}
+
+#image-container, #login-formContainer {
+    flex: 1 1 50%;
+    height: auto;
+    min-height: 100vh;
+}
+
+#image-container {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+#mentors-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-right: 1px solid #ccc;
+}
+
+#login-formContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #57ad8b;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#Login_Form {
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+input {
+    width: 100%;
+    height: 2.5rem;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    margin: 10px 0;
+    padding-left: 1rem;
+    outline: none;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    font-size: 1rem;
+}
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+input:focus {
+    border-color: #4087EA;
+    box-shadow: 0 0 10px 2px rgba(64, 135, 234, 0.5);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 30px;
+    background-color: rgb(38, 124, 200);
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s box-shadow, 0.3s background-color;
+}
+
+button:hover {
+    box-shadow: 0 0 10px 2px rgba(64, 135, 234, 0.7);
+    background-color: rgba(64, 135, 234, 0.7);
+}
+
+a {
+    display: block;
+    margin-top: 1rem;
+    color: rgb(38, 124, 200);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+    .landing-page {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #image-container {
+        display: none;
+    }
+
+    #login-formContainer {
+        width: 100%;
+        height: 100vh;
+        background-image: url('/Assets/Images/pexels-olya-kobruseva-5408684.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
+    #Login_Form {
+        width: 90%;
+        max-width: 400px;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+}

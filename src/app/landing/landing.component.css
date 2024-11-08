@@ -1,0 +1,212 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  line-height: 1.6;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-section {
+  background-image: url("https://images.unsplash.com/photo-1542626991-cbc4e32524cc?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  position: relative;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.hero-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 50px;
+  border-radius: 10px;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  animation: fadeInUp 1.2s ease-out forwards;
+}
+
+.btn-primary {
+  background-color: #007BFF;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative; 
+  overflow: hidden;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  animation: fadeInUp 1.4s ease-out forwards;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%; 
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.4s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+.btn-primary:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.features-section {
+  padding: 60px 20px;
+  background-color: #f7f7f7;
+  text-align: center;
+  animation: fadeInUp 1.5s ease-out forwards;
+}
+
+.features-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #333;
+  animation: fadeInUp 1.6s ease-out forwards;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.feature {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  animation: fadeInUp 1.6s ease-out forwards; 
+}
+
+.feature:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.feature:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.feature:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+.feature:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.feature h3 {
+  margin-top: 20px;
+  font-size: 1.5rem;
+}
+
+.feature i {
+  font-size: 2.5rem;
+  color: #007BFF;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.feature:hover i {
+  transform: scale(1.2);
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  padding: 60px 20px;
+  background-color: #007BFF;
+  color: white;
+  text-align: center;
+  animation: fadeInUp 2s ease-out forwards;
+}
+
+.testimonials-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  animation: fadeInUp 2.2s ease-out forwards;
+}
+
+.testimonials {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  animation: fadeInUp 2.4s ease-out forwards;
+}
+
+.testimonial {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 2.6s ease-out forwards;
+}
+
+.testimonial p {
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.testimonial span {
+  display: block;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+}
+
+footer a {
+  color: #007BFF;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}

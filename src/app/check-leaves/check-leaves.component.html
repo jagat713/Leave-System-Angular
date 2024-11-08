@@ -1,0 +1,31 @@
+<!-- Leave History Section -->
+<div class="leave-history-section">
+    <h3>Your Recent Leave Applications</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Leave Id</th>
+          <th>Leave Type</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Reason</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let leave of recentLeaves; let i = index">
+          <td>{{leave.leaveId}}</td>
+          <td>{{ leave.leaveType }}</td>
+          <td>{{ leave.leaveStart | date }}</td>
+          <td>{{ leave.leaveEnd | date }}</td>
+          <td>{{ leave.leaveReason }}</td>
+          <td>{{ leave.leaveStatus }}</td>
+          <td>
+            <button (click)="deleteLeave(leave.leaveId, i)">Delete</button> <!-- Delete button -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

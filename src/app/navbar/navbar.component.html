@@ -1,0 +1,20 @@
+<nav class="navbar">
+    <div class="navbar-container">
+      <h1 class="navbar-heading">Leave Management System</h1>
+      <ul class="navbar-menu">
+        <li><a [routerLink]="['Home', employeeId]">Home</a></li>
+        <li><a [routerLink]="['ApplyLeave',employeeId]">Apply Leave</a></li>
+        <li><a [routerLink]="['CheckLeave',employeeId]">Check Leave Application</a></li>
+        <li *ngIf="employeeleaves"><a [routerLink]="['EmployeeLeaves',employeeId]">Employee Leaves</a></li>
+      </ul>
+      <div class="navbar-buttons">
+        <button class="btn-profile">
+          <a [routerLink]="['Profile',employeeId]" class="btn-profile"><i class="fa-solid fa-user fa-2xl"></i></a>
+        </button>
+        <button class="btn-logout" (click)="logout()">
+          <i class="fa-solid fa-power-off fa-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>

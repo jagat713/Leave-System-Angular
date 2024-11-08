@@ -1,0 +1,21 @@
+<div class="landing-page">
+  <div id="image-container">
+      <img src="Assets/Images/pexels-olya-kobruseva-5408684.jpg" alt="img" id="mentors-image">
+  </div>
+  <div id="login-formContainer">
+      <form id="Login_Form" (ngSubmit)="login()">
+          <h1>Welcome Login</h1>
+          <input type="number" placeholder="User-Email" [(ngModel)]="Login.employeeId" name="employee_Id" required>
+          <br>
+          <input type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
+          <br>
+          <div *ngIf="loginstate">
+              <h3 style="color: red;">Incorrect UserID or Password</h3>
+          </div>
+          <br>
+          <button type="submit" id="Login_Button">Login</button>
+          <br>
+          <a href="#">Forgot Password?</a>
+      </form>
+  </div>
+</div>

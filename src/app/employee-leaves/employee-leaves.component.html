@@ -1,0 +1,31 @@
+<div class="leave-container">
+    <h2>Employee Leave Records</h2>
+    <table class="leave-table">
+      <thead>
+        <tr>
+          <th>Leave ID</th>
+          <th>Leave Type</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Reason</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let leave of leaves">
+          <td>{{ leave.leaveId }}</td>
+          <td>{{ leave.leavetype }}</td>
+          <td>{{ leave.startDate | date: 'shortDate' }}</td>
+          <td>{{ leave.endDate | date: 'shortDate' }}</td>
+          <td>{{ leave.reason }}</td>
+          <td>{{ leave.status }}</td>
+          <td>
+            <button (click)="rejectLeave(leave.leaveId)" class="btn reject-btn">Reject</button>
+            <button (click)="escalateLeave(leave.leaveId)" class="btn escalate-btn">Escalate</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,0 +1,31 @@
+<div class="profile-container">
+    <div class="profile-card">
+      <div class="profile-header">
+          <img src="Assets/Images/images.png" alt="Default Profile Image" class="profile-image" />
+        <h2 class="profile-name">{{ employee.employeeName }}</h2>
+        <p class="profile-role">{{ employee.employeeRole }}</p>
+      </div>
+      <div class="profile-details">
+        <div class="detail-item">
+          <label>Employee ID:</label>
+          <span>{{ employee.employeeId }}</span>
+        </div>
+        <div class="detail-item">
+          <label>Leave Balance:</label>
+          <span>{{ employee.employeeLeaveBalance }}</span>
+        </div>
+        <div class="detail-item">
+          <label>Password:</label>
+          <span>{{ isPasswordVisible ? employee.employeePassword : '****' }}</span>
+          <button (click)="togglePasswordVisibility()" class="toggle-password">
+            {{ isPasswordVisible ? 'Hide' : 'Show' }}
+          </button>
+        </div>
+        <div class="detail-item">
+            <label>Email:</label>
+            <span>{{ employee.employeeEmail}}</span>
+          </div>
+      </div>
+    </div>
+  </div>
+  
