@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-employee-leaves',
@@ -11,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./employee-leaves.component.css']
 })
 export class EmployeeLeavesComponent {
+  private baseUrl = environment.baseUrl;
   recentLeaves: any[] = [];
   employeeId: any; 
 
@@ -25,7 +27,7 @@ export class EmployeeLeavesComponent {
   }
 
   getLeavesByTeamLeader() {
-    this.http.get(`http://localhost:8080/GetLeavesByTeamLeader?teamLeaderId=${this.employeeId}`).subscribe(
+    this.http.get(`${this.baseUrl}/GetLeavesByTeamLeader?teamLeaderId=${this.employeeId}`).subscribe(
       (result: any) => {
         console.log(result); 
         this.recentLeaves = result; 
@@ -37,7 +39,7 @@ export class EmployeeLeavesComponent {
   }
 
   rejectLeave(leaveId: number) {
-    this.http.post(`http://localhost:8080/Reject?leaveId=${leaveId}`, {}).subscribe(
+    this.http.post(`${this.baseUrl}/Reject?leaveId=${leaveId}`, {}).subscribe(
       (result) => {
         console.log('Leave rejected successfully:', result);
         this.getLeavesByTeamLeader()
@@ -47,7 +49,7 @@ export class EmployeeLeavesComponent {
   }
   
   escalateLeave(leaveId: number) {
-    this.http.post(`http://localhost:8080/Esclate?leaveId=${leaveId}`, {}).subscribe(
+    this.http.post(`${this.baseUrl}/Esclate?leaveId=${leaveId}`, {}).subscribe(
       (result) => {
         console.log('Leave escalated successfully:', result);
         this.ngOnInit()

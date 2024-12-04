@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +12,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  private baseUrl = environment.baseUrl;
   validation: any;
   loginstate:boolean=false;
   password:any;
@@ -27,7 +29,7 @@ export class LoginComponent {
   login()
   {
     console.log(this.Login.employeeId);
-    this.http.post("http://localhost:8080/login",this.Login).subscribe((result:any)=>
+    this.http.post(`${this.baseUrl}/login`,this.Login).subscribe((result:any)=>
     {
       console.log(result);
       console.log(this.password);

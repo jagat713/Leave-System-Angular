@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-check-leaves',
@@ -12,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./check-leaves.component.css']
 })
 export class CheckLeavesComponent {
+  private baseUrl = environment.baseUrl;
   recentLeaves: any[] = [];
   employeeId: any;
   id: any = { "employeeId": '' };
@@ -28,7 +30,7 @@ export class CheckLeavesComponent {
         const employeeId = { employeeId: this.id.employeeId };
         console.log(employeeId);
 
-        this.http.post("http://localhost:8080/all-leave", employeeId).subscribe(
+        this.http.post(`${this.baseUrl}/all-leave`, employeeId).subscribe(
           (result: any) => {
             this.recentLeaves = result;
             console.log(this.recentLeaves);
@@ -45,7 +47,7 @@ export class CheckLeavesComponent {
 
   deleteLeave(leaveId: number, index: number) {
     console.log(leaveId)
-    this.http.delete(`http://localhost:8080/delete-leave?leaveId=${leaveId}`).subscribe(result => 
+    this.http.delete(`${this.baseUrl}/delete-leave?leaveId=${leaveId}`).subscribe(result => 
       {
         console.log(`Leave with ID ${leaveId} deleted successfully.`);
         this.recentLeaves.splice(index, 1);

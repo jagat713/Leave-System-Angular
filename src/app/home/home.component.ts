@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  private baseUrl = environment.baseUrl;
   ShowDataTable:any=false;
   LeaveBalance: any;
   Name: any;
@@ -36,7 +38,7 @@ export class HomeComponent implements OnInit {
   }
 
   fetchEmployeeDetails() {
-    this.http.post("http://localhost:8080/login", this.id).subscribe((result: any) => {
+    this.http.post(`${this.baseUrl}/login`, this.id).subscribe((result: any) => {
       this.LeaveBalance = result.employeeLeaveBalance;
       this.Name = result.employeeName;
       this.employeeRole=result.employeeRole;
@@ -56,7 +58,7 @@ export class HomeComponent implements OnInit {
   }
 
   fetchLeaveHistory() {
-    this.http.post("http://localhost:8080/all-leave", this.id).subscribe(
+    this.http.post(`${this.baseUrl}/all-leave`, this.id).subscribe(
       (result: any) => {
         if (result && result.length > 0) {
           this.recentLeavesList = result.slice(-5).reverse();
@@ -65,7 +67,7 @@ export class HomeComponent implements OnInit {
     );
   }
   onDateChange() {
-    this.http.get(`http://localhost:8080/approved-leaves?date=${this.selectedDate}`).subscribe(
+    this.http.get(`${this.baseUrl}/approved-leaves?date=${this.selectedDate}`).subscribe(
       (result:any) => {
         this.leaveRecords = result;
         console.log(this.leaveRecords);

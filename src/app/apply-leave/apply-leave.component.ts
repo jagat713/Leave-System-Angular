@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-apply-leave',
@@ -12,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./apply-leave.component.css']
 })
 export class ApplyLeaveComponent {
+  private baseUrl = environment.baseUrl;
   recentLeaves: any;
   employeeId: any;
   employeeLeavebalance:any;
@@ -52,7 +54,7 @@ export class ApplyLeaveComponent {
       this.leave.leaveEmployeeName=this.employeename;
       console.log(this.leave);
       
-      this.http.post("http://localhost:8080/apply-leave", this.leave).subscribe({
+      this.http.post(`${this.baseUrl}/apply-leave`, this.leave).subscribe({
         next: (result: any) => {
           console.log('Leave Applied:', result);
           this.resetForm();
@@ -81,7 +83,7 @@ export class ApplyLeaveComponent {
   }
 
   fetchEmployeeDetails() {
-    this.http.post("http://localhost:8080/login", this.id).subscribe((result: any) => {
+    this.http.post(`${this.baseUrl}/login`, this.id).subscribe((result: any) => {
       this.teamLeaderId = result.teamLeaderId;
       this.employeeLeavebalance=result.employeeLeaveBalance;
       this.employeename=result.employeeName;

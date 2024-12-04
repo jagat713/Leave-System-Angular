@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-profile',
@@ -11,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent {
+  private baseUrl = environment.baseUrl;
   employee = {
     employeeId: '',
     employeeLeaveBalance: '',
@@ -33,7 +35,7 @@ export class ProfileComponent {
   }
 
   fetchEmployeeDetails() {
-    this.http.post("http://localhost:8080/login", this.id).subscribe((result: any) => {
+    this.http.post(`${this.baseUrl}/login`, this.id).subscribe((result: any) => {
       this.employee=result;
     });
   }

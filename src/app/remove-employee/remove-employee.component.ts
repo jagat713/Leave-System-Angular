@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-remove-employee',
@@ -11,7 +12,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './remove-employee.component.css'
 })
 export class RemoveEmployeeComponent {
-
+  private baseUrl = environment.baseUrl;
   employeeId:any;
   message: string = '';
   success: boolean = false;
@@ -21,7 +22,7 @@ export class RemoveEmployeeComponent {
   onRemoveEmployee() {
     if (this.employeeId !== null) 
     {
-      this.http.delete(`http://localhost:8080/RemoveEmployee?employeeid=${this.employeeId}`).subscribe((result:any) => 
+      this.http.delete(`${this.baseUrl}/RemoveEmployee?employeeid=${this.employeeId}`).subscribe((result:any) => 
       {
         this.success = true;
         this.message = 'Employee removed successfully.';
