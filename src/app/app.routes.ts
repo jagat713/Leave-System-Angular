@@ -7,6 +7,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
 import { EmployeeLeavesComponent } from './employee-leaves/employee-leaves.component';
+import { ManagerAllLeaveComponent } from './manager-all-leave/manager-all-leave.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { RemoveEmployeeComponent } from './remove-employee/remove-employee.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'Home', pathMatch: 'full' },
@@ -21,6 +24,18 @@ export const routes: Routes = [
     {
         path:'CheckLeave/:id',
         component:CheckLeavesComponent
+    },
+    {
+        path:'AllLeaveApplications',
+        component:ManagerAllLeaveComponent
+    },
+    {
+        path:'AddEmployee',
+        component:AddEmployeeComponent
+    },
+    {
+        path:'RemoveEmployee',
+        component:RemoveEmployeeComponent
     },
     {
         path:'EmployeeLeaves/:id',

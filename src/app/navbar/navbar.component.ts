@@ -15,19 +15,33 @@ export class NavbarComponent {
   @Input()data:any;
   employeeleaves:any=false;
   employeeId:any;
+  employeeleavebalance:any;
+  manager:any=false;
+  employee:any=false;
   constructor(private router: Router){}
   ngOnInit()
   {
     this.employeedata=this.data;
     this.employeeId=this.data.employeeId
+    this.employeeleavebalance=this.data.employeeleavebalance
+    if(this.employeedata.employeeRole=="Employee")
+    {
+      this.employee=true;
+    }
     if(this.employeedata.employeeRole=="TeamLeader")
     {
       this.employeeleaves=true;
+      this.employee=true;
+    }
+    if(this.employeedata.employeeRole=="Manager")
+    {
+      this.manager=true;
     }
     if (this.employeeId) {
       this.router.navigate(['Home', this.employeeId]);
     }
   }
+
   logout() {
     window.location.reload();
   }

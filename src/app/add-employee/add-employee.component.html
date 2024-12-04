@@ -1,0 +1,37 @@
+<div class="add-employee-container">
+    <h2>Add New Employee</h2>
+    <h2 *ngIf="status">Successfully Added</h2>
+    <form (ngSubmit)="onSubmit()" #employeeForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" class="form-control" [(ngModel)]="employee.employeeName" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" class="form-control" [(ngModel)]="employee.employeeEmail" required/>
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" class="form-control" [(ngModel)]="employee.employeePassword" required/>
+      </div>
+  
+      <div class="form-group">
+        <label for="leaveBalance">Leave Balance:</label>
+        <input type="number" id="leaveBalance" name="leaveBalance" class="form-control" [(ngModel)]="employee.employeeLeaveBalance" required/>
+      </div>
+  
+      <div class="form-group">
+        <label for="role">Role:</label>
+        <input type="text" id="role" name="role" class="form-control" [(ngModel)]="employee.employeeRole" required/>
+      </div>
+  
+      <div class="form-group">
+        <label for="teamLeader">Team Leader:</label>
+        <input type="text" id="teamLeader" name="teamLeader" class="form-control" [(ngModel)]="employee.teamLeaderId"/>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!employeeForm.form.valid">Add Employee</button>
+    </form>
+  </div>
+  

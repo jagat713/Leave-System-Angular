@@ -1,10 +1,13 @@
 <nav class="navbar">
     <div class="navbar-container">
-      <h1 class="navbar-heading">Leave Management System</h1>
+      <h1 class="nav=bar-heading">Leave Management System</h1>
       <ul class="navbar-menu">
-        <li><a [routerLink]="['Home', employeeId]">Home</a></li>
-        <li><a [routerLink]="['ApplyLeave',employeeId]">Apply Leave</a></li>
-        <li><a [routerLink]="['CheckLeave',employeeId]">Check Leave Application</a></li>
+        <li><a  [routerLink]="['Home', employeeId]">Home</a></li>
+        <li><a *ngIf="manager" routerLink="AllLeaveApplications">All Leave Applications</a></li>
+        <li><a *ngIf="manager" routerLink="AddEmployee">Add Employee</a></li>
+        <li><a *ngIf="manager" routerLink="RemoveEmployee">Remove Employee</a></li>
+        <li><a *ngIf="employee" [routerLink]="['ApplyLeave',employeeId]">Apply Leave</a></li>
+        <li><a *ngIf="employee"[routerLink]="['CheckLeave',employeeId]">Check Leave Application</a></li>
         <li *ngIf="employeeleaves"><a [routerLink]="['EmployeeLeaves',employeeId]">Employee Leaves</a></li>
       </ul>
       <div class="navbar-buttons">

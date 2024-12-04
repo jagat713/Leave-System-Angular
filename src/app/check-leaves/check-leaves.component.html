@@ -22,7 +22,7 @@
           <td>{{ leave.leaveReason }}</td>
           <td>{{ leave.leaveStatus }}</td>
           <td>
-            <button (click)="deleteLeave(leave.leaveId, i)">Delete</button> <!-- Delete button -->
+            <button *ngIf="leave.leaveStatus !== 'Approved' && leave.leaveStatus !== 'Rejected'" (click)="deleteLeave(leave.leaveId, i)">Delete</button>
           </td>
         </tr>
       </tbody>

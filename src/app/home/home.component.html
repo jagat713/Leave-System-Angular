@@ -1,10 +1,10 @@
-  <!-- Welcome Section -->
+
   <div class="welcome-section">
-    <h2>Welcome, {{Name}}</h2>
-    <p>Your current leave balance is <strong>{{LeaveBalance}}</strong>.</p>
+    <h2>Welcome, {{Name}} 👋</h2>
+    <p *ngIf="employee">Your current leave balance is <strong>{{LeaveBalance}}</strong>.</p>
   </div>
-<!-- Leave History Section -->
-<div class="leave-history-section">
+
+<div class="leave-history-section" *ngIf="employee">
   <h3>Your Recent Leave Applications</h3>
   <table>
     <thead>
@@ -30,3 +30,37 @@
   </table>
 </div>
 
+<div class="leave-records-container" *ngIf="ManagerRole">
+
+  <div class="date-input">
+    <label for="leaveDate">Select Date:</label>
+    <input type="date" id="leaveDate" [(ngModel)]="selectedDate" (change)="onDateChange()">
+  </div>
+
+  <div class="table-responsive" *ngIf="ShowDataTable">
+    <table>
+      <thead>
+        <tr>
+          <th>Leave ID</th>
+          <th>Employee ID</th>
+          <th>Employee Name</th>
+          <th>Leave Type</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Reason</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let leave of leaveRecords">
+          <td>{{ leave.leaveId }}</td>
+          <td>{{ leave.leaveEmployeeId }}</td>
+          <td>{{ leave.leaveEmployeeName || 'N/A' }}</td>
+          <td>{{ leave.leaveType }}</td>
+          <td>{{ leave.leaveStart | date }}</td>
+          <td>{{ leave.leaveEnd | date }}</td>
+          <td>{{ leave.leaveReason }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -4,6 +4,7 @@
   <form (ngSubmit)="onSubmit()" #form="ngForm"> 
     <!-- Leave Type -->
     <div class="form-group">
+      <h1 *ngIf="successmessage">Successfully Submitted</h1>
       <label for="leaveType">Leave Type</label>
       <select id="leaveType" [(ngModel)]="leave.leaveType" name="leaveType" required #leaveType="ngModel">
         <option value="" disabled selected>Select Leave Type</option>

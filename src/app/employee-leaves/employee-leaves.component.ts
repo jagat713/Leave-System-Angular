@@ -8,38 +8,50 @@ import { ActivatedRoute } from '@angular/router';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './employee-leaves.component.html',
-  styleUrl: './employee-leaves.component.css'
+  styleUrls: ['./employee-leaves.component.css']
 })
 export class EmployeeLeavesComponent {
-  leaves = [
-    {
-      leaveId: 1,
-      leavetype:'Sick',
-      status: 'Pending',
-      startDate: new Date('2024-11-01'),
-      endDate: new Date('2024-11-05'),
-      reason: 'Medical leave',
-    },
-  ];
-  employeeId: any;
-  id: any = { "employeeId": '' };
+  recentLeaves: any[] = [];
+  employeeId: any; 
+
   constructor(private http: HttpClient, private route: ActivatedRoute) {}
 
   ngOnInit() {
+    // Get the employeeId from the route params
     this.route.params.subscribe(params => {
-      this.employeeId = Number(params['id']); 
+      this.employeeId = Number(params['id']);
+      this.getLeavesByTeamLeader();
     });
-    this.http.get("",this.id).subscribe(result=>
-    {
+  }
 
-    }
+  getLeavesByTeamLeader() {
+    this.http.get(`http://localhost:8080/GetLeavesByTeamLeader?teamLeaderId=${this.employeeId}`).subscribe(
+      (result: any) => {
+        console.log(result); 
+        this.recentLeaves = result; 
+      },
+      (error) => {
+        console.error('Error fetching leave data:', error); 
+      }
     );
   }
-  rejectLeave(leaveId: number) {
-    console.log(`Leave ID ${leaveId} rejected`);
-  }
 
+  rejectLeave(leaveId: number) {
+    this.http.post(`http://localhost:8080/Reject?leaveId=${leaveId}`, {}).subscribe(
+      (result) => {
+        console.log('Leave rejected successfully:', result);
+        this.getLeavesByTeamLeader()
+        this.ngOnInit()
+      }
+    );
+  }
+  
   escalateLeave(leaveId: number) {
-    console.log(`Leave ID ${leaveId} escalated`);
+    this.http.post(`http://localhost:8080/Esclate?leaveId=${leaveId}`, {}).subscribe(
+      (result) => {
+        console.log('Leave escalated successfully:', result);
+        this.ngOnInit()
+      }
+    );
   }
 }

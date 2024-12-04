@@ -98,3 +98,7 @@
     box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.5);
   }
   
+  .leave-history-section {
+    overflow-x: auto;
+  }
+  
