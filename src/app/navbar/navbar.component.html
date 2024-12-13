@@ -14,8 +14,9 @@
         <button class="btn-profile">
           <a [routerLink]="['Profile',employeeId]" class="btn-profile"><i class="fa-solid fa-user fa-2xl"></i></a>
         </button>
-        <button class="btn-logout" (click)="logout()">
-          <i class="fa-solid fa-power-off fa-2xl"></i>
+        <!-- <button class="btn-logout" (click)="logout()"> -->
+          <button class="btn-logout" (click)="logout()">
+          <a routerLink="Login"> <i class="fa-solid fa-power-off fa-2xl"></i></a>
         </button>
       </div>
     </div>
