@@ -1,5 +1,5 @@
 [build]
-  publish = "dist/LEAVESYSTEM"
+  publish = "dist/leave-system/browser"
   command = "ng build"
 [[redirects]]
   from = "/*"
