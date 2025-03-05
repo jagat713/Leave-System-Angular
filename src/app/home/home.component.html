@@ -14,6 +14,8 @@
         <th>Start Date</th>
         <th>End Date</th>
         <th>Reason</th>
+        <th>Time</th>
+        <th>Date</th>
         <th>Status</th>
       </tr>
     </thead>
@@ -24,7 +26,20 @@
         <td>{{ leave.leaveStart | date }}</td>
         <td>{{ leave.leaveEnd | date }}</td>
         <td>{{ leave.leaveReason }}</td>
-        <td>{{leave.leaveStatus}}</td>
+        <td>{{leave.leaveTime}}</td>
+        <td>{{leave.leaveDate}}</td>
+        <td>
+          <span *ngIf="leave.leaveStatus === 'Approved'" style="color: green;">
+            ✅ 
+          </span>
+          <span *ngIf="leave.leaveStatus === 'Rejected'" style="color: red;">
+            ❌ 
+          </span>
+          <span *ngIf="leave.leaveStatus === 'Application Under Process'" style="color: orange;">
+            ⏳ 
+          </span>
+        </td>
+        
       </tr>
     </tbody>
   </table>

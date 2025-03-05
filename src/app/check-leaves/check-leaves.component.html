@@ -5,6 +5,8 @@
       <thead>
         <tr>
           <th>Leave Id</th>
+          <th>Time</th>
+          <th>Date</th>
           <th>Leave Type</th>
           <th>Start Date</th>
           <th>End Date</th>
@@ -16,6 +18,8 @@
       <tbody>
         <tr *ngFor="let leave of recentLeaves; let i = index">
           <td>{{leave.leaveId}}</td>
+          <td>{{leave.leaveTime}}</td>
+          <td>{{leave.leaveDate}}</td>
           <td>{{ leave.leaveType }}</td>
           <td>{{ leave.leaveStart | date }}</td>
           <td>{{ leave.leaveEnd | date }}</td>

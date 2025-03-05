@@ -3,6 +3,8 @@
       <thead>
         <tr>
           <th>Leave ID</th>
+          <th>Time</th>
+          <th>Date</th>
           <th>Employee ID</th>
           <th>Employee Name</th>
           <th>Leave Start Date</th>
@@ -16,6 +18,8 @@
       <tbody>
         <tr *ngFor="let leave of leaves">
           <td>{{ leave.leaveId }}</td>
+          <td>{{leave.leaveTime}}</td>
+          <td>{{leave.leaveDate}}</td>
           <td>{{ leave.leaveEmployeeId }}</td>
           <td>{{ leave.leaveEmployeeName }}</td>
           <td>{{ leave.leaveStart}}</td>
@@ -24,9 +28,9 @@
           <td>{{leave.leaveStatus}}</td>
           <td>{{ leave.leaveReason }}</td>
           <td>
-            <button (click)="approveLeave(leave.leaveEmployeeId,leave.leaveId, leave.leaveStart, leave.leaveEnd)">Approve</button>
+            <button (click)="approveLeave(leave.leaveEmployeeId,leave.leaveId, leave.leaveStart, leave.leaveEnd)">Approve Leave</button>
 
-            <button (click)="rejectLeave(leave.leaveId)">Reject</button>
+            <button (click)="rejectLeave(leave.leaveId)">Reject Leave</button>
           </td>
         </tr>
       </tbody>

@@ -4,6 +4,8 @@
     <thead>
       <tr>
         <th>Leave ID</th>
+        <th>Time</th>
+        <th>Date</th>
         <th>Leave Type</th>
         <th>EmployeeID</th>
         <th>Employee Name</th>
@@ -17,6 +19,8 @@
     <tbody>
       <tr *ngFor="let leave of recentLeaves">
         <td>{{ leave.leaveId }}</td>
+        <td>{{leave.leaveTime}}</td>
+        <td>{{leave.leaveDate}}</td>
         <td>{{ leave.leaveType }}</td>
         <td>{{leave.leaveEmployeeId}}</td>
         <td>{{leave.leaveEmployeeName}}</td>

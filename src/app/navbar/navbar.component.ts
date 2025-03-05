@@ -43,6 +43,10 @@ export class NavbarComponent {
   }
 
   logout() {
-    window.location.reload();
-  }
+    window.location.href = "http://leavesystem.s3-website.ap-south-1.amazonaws.com"; // Redirect to a specific page
+    setTimeout(() => {
+        window.location.reload(); // Reload after redirection
+    }, 500); // Small delay to allow redirection
+}
+
 }

@@ -1,0 +1,77 @@
+/* *{
+background: url('/Assets/Images/DALL·E 2025-03-01 20.46.31 - A modern, professional background with a soft blue and purple gradient, incorporating a subtle blur effect for a glassmorphic aesthetic. The design sh.webp') no-repeat center center;
+background-size: cover; /* Ensures the image covers the entire container }*/
+
+/* Universal Background */
+body {
+    background: linear-gradient(135deg, #2E3192 0%, #1BFFFF 100%);
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Glassmorphic Container */
+.apply-leave-form-container {
+    background: rgba(255, 255, 255, 0.2); /* Transparent White */
+    backdrop-filter: blur(10px); /* Glass Effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari Support */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    max-width: 450px;
+    width: 100%;
+    color: white;
+    position: relative;
+}
+
+/* Form Elements Styling */
+.apply-leave-form-container h2 {
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-group label {
+    color: white;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.3);
+    color: black;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.btn-apply-leave {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-apply-leave:hover {
+    background-color: #0056b3;
+}
