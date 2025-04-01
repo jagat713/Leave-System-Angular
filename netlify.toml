@@ -1,7 +1,6 @@
-[build]
-  publish = "dist/leave-system/browser"
-  command = "ng build"
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+
+  [[redirects]]
+from = "/*"
+to = "https://your-s3-bucket-url.com/:splat"
+status = 301
+force = true
