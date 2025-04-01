@@ -1,6 +1,6 @@
 
   [[redirects]]
 from = "/*"
-to = "https://your-s3-bucket-url.com/:splat"
+to = "http://jagattalks.s3-website.ap-south-1.amazonaws.com/"
 status = 301
 force = true
